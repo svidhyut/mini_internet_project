@@ -8,17 +8,17 @@ fd = open('external_links_config_80_generated_AS1000.txt', 'w')
 
 for block in ASes:
     tier1 = block[:2]
-    print(tier1)
+    # print(tier1)
     rest = block[2:-2]
     stub = block[-2:]
-    print(stub)
-    print(rest)
+    # print(stub)
+    # print(rest)
 
     for i in tier1+stub:
         # 1   ZURI    Peer    1000    LOND    Peer    100000  1000
-        fd.write(str(i)+"\tZURI\tPeer\t1000\tLOND\tPeer\t100000\t1000\n")
+        fd.write(str(i)+"\tZURI\tPeer\t1000\tLOND\tPeer\t100000\t1000\t180.0."+str(i)+".0/24\n")
 
     for i in rest:
-        fd.write(str(i)+"\tPARI\tPeer\t1000\tLOND\tPeer\t100000\t1000\n")
+        fd.write(str(i)+"\tPARI\tPeer\t1000\tLOND\tPeer\t100000\t1000\t180.0."+str(i)+".0/24\n")
 
 fd.close()
